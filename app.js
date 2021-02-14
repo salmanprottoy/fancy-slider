@@ -13,11 +13,18 @@ let sliders = [];
 const KEY = "9746220-35ba4ff3cc97ae71f33ebfdbc";
 
 // Enter key press search
-document.getElementById("search").addEventListener("keypress", function(e) {
-  if(e.key=="Enter"){
+document.getElementById("search").addEventListener("keypress", function (e) {
+  if (e.key == "Enter") {
     document.getElementById("search-btn").click();
   }
-})
+});
+
+// Toggle Spinner
+const toggleSpinner = () => {
+  let spinner = document.getElementById("loading-spinner");
+  spinner.classList.toggle("d-none");
+};
+
 // show images
 const showImages = (images) => {
   console.log(images);
@@ -31,9 +38,11 @@ const showImages = (images) => {
     div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div);
   });
+  toggleSpinner();
 };
 
 const getImages = (query) => {
+  toggleSpinner();
   fetch(
     `https://pixabay.com/api/?key=${KEY}&q=${query}&image_type=photo&pretty=true`
   )
