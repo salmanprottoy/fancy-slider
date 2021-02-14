@@ -30,6 +30,7 @@ const showImages = (images) => {
   const errorMessage = document.getElementById("error-message");
   errorMessage.innerHTML = "";
   if (images.length == 0) {
+    // Show Error Message
     errorMessage.innerHTML = `<p class="text-danger">Can't find any image</p>`;
   }
   imagesArea.style.display = "block";
@@ -58,13 +59,14 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add("added");
+  element.classList.toggle("added");
 
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
   } else {
-    alert("Hey, Already added !");
+    console.log(item);
+    sliders.splice(item, 1);
   }
 };
 var timer;
