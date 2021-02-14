@@ -65,7 +65,6 @@ const selectItem = (event, img) => {
   if (item === -1) {
     sliders.push(img);
   } else {
-    console.log(item);
     sliders.splice(item, 1);
   }
 };
