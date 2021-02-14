@@ -27,7 +27,11 @@ const toggleSpinner = () => {
 
 // show images
 const showImages = (images) => {
-  console.log(images);
+  const errorMessage = document.getElementById("error-message");
+  errorMessage.innerHTML = "";
+  if (images.length == 0) {
+    errorMessage.innerHTML = `<p class="text-danger">Can't find any image</p>`;
+  }
   imagesArea.style.display = "block";
   gallery.innerHTML = "";
   // show gallery title
