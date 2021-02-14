@@ -12,6 +12,12 @@ let sliders = [];
 // to create your own api key
 const KEY = "9746220-35ba4ff3cc97ae71f33ebfdbc";
 
+// Enter key press search
+document.getElementById("search").addEventListener("keypress", function(e) {
+  if(e.key=="Enter"){
+    document.getElementById("search-btn").click();
+  }
+})
 // show images
 const showImages = (images) => {
   console.log(images);
